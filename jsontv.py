@@ -26,8 +26,8 @@ the data as a python dict/list.
 """
 __author__  =  'Justin Hall'
 __version__ =  '0.1'
-__file__    = 'jstontv.py'
-__name__    = 'jstontv' 
+__file__    = 'jsontv.py'
+__name__    = 'jsonTV' 
 
 class UnknownActionError(Exception):
     """ Exception raised when an action is called that doesn't exist
