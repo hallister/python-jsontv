@@ -30,3 +30,9 @@ Contributions
 
 Please feel free to submit commits if you feel like there is a better 
 way to do something.
+
+
+Python Support
+=========
+
+This has been tested on Python 2.7 and Python 3.2.

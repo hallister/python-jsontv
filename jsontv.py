@@ -1,3 +1,4 @@
+from __future__ import with_statement, print_function
 """Copyright 2013 Justin Hall
 
    Licensed under the Apache License, Version 2.0 (the "License");
