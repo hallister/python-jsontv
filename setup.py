@@ -9,7 +9,7 @@ setup(
     url='http://pypi.python.org/pypi/jsonTV/',
     license='APACHE 2.0',
     description='A client for the Schedules Direct JSON API',
-    long_description=open('README.txt').read(),
+    long_description=open('README.rst').read(),
     install_requires=[
         "requests",
     ],
