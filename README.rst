@@ -1,8 +1,8 @@
-=====
+=======
 jsontv
-=====
+=======
 Intro
---------
+-------------
 jsontv downloads and generates television data from SchedulesDirect.org
 and parses it into python dicts (and lists). Simple usage is as follows:
 
@@ -17,7 +17,7 @@ and parses it into python dicts (and lists). Simple usage is as follows:
 You can see a full example in the ./examples folder of this project.
 
 Usage
---------
+-----
 
 There a few cavets with it's current incarnation:
 
@@ -29,13 +29,13 @@ There a few cavets with it's current incarnation:
 
 
 Contributions
---------
+-------------
 
 Please feel free to submit commits if you feel like there is a better 
 way to do something.
 
 
 Python Support
---------
+--------------
 
 This has been tested on Python 2.7 and Python 3.2.
