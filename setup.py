@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='jsonTV',
-    version='0.1.0',
+    version='0.1.1',
     author='Justin Hall',
     author_email='jhall1468@gmail.com',
     py_modules=['jsontv'],

@@ -1,11 +1,19 @@
-schedule = SchedulesDirect('user', 'pass')
+from jsontv import JSONError
+from jsontv import UnknownActionError
+from random import sample
 
-print("Logging in to SchedulesDirect...")
-if schedule.get_randhash():
-    print("Successfully got random hash.")
-else:
-    print("Unable to get hash key. Exit.")
-    sys.exit(-1)
+import jsontv
+import sys
+
+schedule = jsontv.SchedulesDirect(sys.argv[1], sys.argv[2])
+
+print("Trying to login with " + sys.argv[1])
+
+try:
+    logged_in = schedule.get_randhash()
+except JSONError as e:
+    print("Error: " + str(e.code) + " " + e.msg)
+    exit(-1)
     
 print("Checking if server is allowing connections...")
 if schedule.get_status():

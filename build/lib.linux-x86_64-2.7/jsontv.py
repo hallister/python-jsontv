@@ -202,7 +202,6 @@ class SchedulesDirect(object):
         self._send_request()
         self.randhash = self.response['randhash']
         self.use_randhash = True
-
         return True
 
     def get_status(self):
@@ -309,7 +308,7 @@ class SchedulesDirect(object):
         data['request']['current'] = current
         data['request']['program_id'] = program_id
         data['request']['field'] = field
-
+        
         self.request.payload['request'] = data
-        self._send_request()
-        return self.response
+
+        return True

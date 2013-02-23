@@ -36,7 +36,7 @@ class JSONError(Exception):
     """
     def __init__(self, code, msg):
         self.code = code
-        self.msg = msg
+        self.action = action
 
 
 class UnknownActionError(Exception):
@@ -191,24 +191,21 @@ class SchedulesDirect(object):
         self.request.send_request()
         self.response = self.request.get_response_text()
         
-        if self.request.is_json:
-            if self.response['response'] == "ERROR":
-                raise JSONError(self.response['code'], self.response['message']);
+        if self.response['response'] == "ERROR" and self.response.is_json:
+            raise JSONError(self.response['code'], self.response['message']);
         
     def get_randhash(self):
         """ Requests a random hashkey from the SD server """
         self._generate_request('get', 'randhash')
         self.request.payload.update({'request': {'password': self.password, 'username': self.username }})
-        self._send_request()
+        
         self.randhash = self.response['randhash']
         self.use_randhash = True
-
         return True
 
     def get_status(self):
         """ Requests the servers status"""
         self._generate_request('get', 'status')
-        self._send_request()
         return self.response
 
     def get_subscribed_headends(self, zipcode=None):
@@ -222,7 +219,6 @@ class SchedulesDirect(object):
         if zipcode is not None:
             self.request.payload['request'] = 'PC:' + str(zipcode)
         
-        self._send_request()
         return self.response
          
     def get_headends(self, zipcode):
@@ -244,7 +240,7 @@ class SchedulesDirect(object):
         """
         self._generate_request(action_type, 'headends')
         self.request.payload['request'] = headend
-        self._send_request()
+        
         return self.response
             
     def delete_headend(self, headend):
@@ -269,7 +265,7 @@ class SchedulesDirect(object):
             headends = [headend]
 
         self.request.payload['request'] = headends;
-        self._send_request()
+                
         lineup = ZipedJsonHandler(self.response)
         return lineup
 
@@ -309,7 +305,7 @@ class SchedulesDirect(object):
         data['request']['current'] = current
         data['request']['program_id'] = program_id
         data['request']['field'] = field
-
+        
         self.request.payload['request'] = data
-        self._send_request()
-        return self.response
+
+        return True
