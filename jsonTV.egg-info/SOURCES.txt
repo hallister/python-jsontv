@@ -1,8 +1,0 @@
-README.rst
-jsontv.py
-setup.py
-jsonTV.egg-info/PKG-INFO
-jsonTV.egg-info/SOURCES.txt
-jsonTV.egg-info/dependency_links.txt
-jsonTV.egg-info/requires.txt
-jsonTV.egg-info/top_level.txt
