@@ -138,8 +138,8 @@ class ZipedJsonHandler(object):
 
 class SchedulesDirect(object):
     """ Interface for the Schedules Direct API """
-    base_url = 'https://data2.schedulesdirect.org/request.php'
-    api_version = 20130107
+    base_url = 'https://data2.schedulesdirect.org/handleRequest.php'
+    api_version = 20130311
     get_options = ['status', 'headends', 'lineups', 'programs', 'schedules', 'randhash', 'metadata']
     request = _Request(base_url, api_version)
 
