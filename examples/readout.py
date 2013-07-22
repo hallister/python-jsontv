@@ -16,12 +16,16 @@ except JSONError as e:
     exit(-1)
     
 print("Checking if server is allowing connections...")
-if schedule.get_status():
-    print("Server is allowing connections.")
-else:
-    print("Server is not accepting connections. Exit.")
-    sys.exit(-1)
-    
+try:
+    if schedule.get_status():
+        print("Server is allowing connections.")
+    else:
+        print("Server is not accepting connections. Exit.")
+        sys.exit(-1)
+except JSONError as e:
+    print("Error: " + str(e.code) + " " + e.msg)
+    exit(-1)
+
 print("Getting available headends for 12207.")
 
 # Seriously... don't iterate this way
